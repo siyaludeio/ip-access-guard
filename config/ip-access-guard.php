@@ -1,7 +1,17 @@
 <?php
 
 return [
-    'path_to_monitor' => 'protected',
+
+    'active' => true,
+
+    'global' => false,
+
+    'protected_paths' => [],
+
     'remote_api_url' => 'https://api.example.com/get-ip-list',
-    'global' => false
+
+    'file_path' => storage_path('ip-access-guards'),
+
+    'file_name' => 'ip-access-guards.json'
+
 ];
