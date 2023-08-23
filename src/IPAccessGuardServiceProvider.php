@@ -3,8 +3,8 @@
 namespace Siyaludeio\IPAccessGuard;
 
 use Illuminate\Support\ServiceProvider;
-use Siyaludeio\IPAccessGuard\Middleware\IPAccessMiddleware;
 use Illuminate\Contracts\Http\Kernel as HttpKernel;
+use Siyaludeio\IPAccessGuard\Http\Middleware\IPAccessMiddleware;
 
 class IPAccessGuardServiceProvider extends ServiceProvider
 {
@@ -18,10 +18,6 @@ class IPAccessGuardServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-
-        // Load routes from the routes.php file
-        $this->loadRoutesFrom(__DIR__ . '/../routes/routes.php');
-
         $kernel = app(HttpKernel::class);
         $kernel->pushMiddleware(IPAccessMiddleware::class);
 
@@ -49,22 +45,14 @@ class IPAccessGuardServiceProvider extends ServiceProvider
      */
     protected function bootForConsole(): void
     {
-        //echo config_path($this->packageName.'.php'); exit;
-        //echo __DIR__.'/../config/'.$this->packageName.'.php'; exit;
+        $this->app->make('files')->ensureDirectoryExists(config('ip-access-guard.file_path'), 0755, true);
+
+        $filePath = config('ip-access-guard.file_path') . '/' . config('ip-access-guard.file_name');
+        $this->app->make('files')->put($filePath, encrypt(json_encode([])));
 
         // Publishing the configuration file
         $this->publishes([
             __DIR__ . '/../config/' . $this->packageName . '.php' => config_path($this->packageName . '.php'),
         ], $this->vendorName . '-' . $this->packageName);
-    }
-
-    /**
-     * Get the services provided by the provider.
-     *
-     * @return array
-     */
-    public function provides(): array
-    {
-        return [$this->packageName];
     }
 }
