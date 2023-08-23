@@ -1,38 +1,38 @@
 {
-    "name": "siyaludeio/ip-access-guard",
-    "version": "dev-main",
-    "description": "Protect Paths with IP Address Access Control",
-    "type": "library",
-    "keywords": [
-        "laravel",
-        "package"
-    ],
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Indunil Peramuna",
-            "email": "indunil@siyalude.io"
-        }
-    ],
-    "autoload": {
-        "psr-4": {
-            "Siyaludeio\\IPAccessGuard\\": "src/"
-        }
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Siyaludeio\\IPAccessGuard\\IPAccessGuardServiceProvider"
-            ]
-        }
-    },
-    "require": {
-        "php": ">=7.4.0 || ^8.0",
-        "illuminate/support": "^8.0|^9.0|^10.0"
-    },
-    "require-dev": {
-        "phpunit/phpunit": "^9.0"
-    },
-    "minimum-stability": "stable",
-    "prefer-stable": true
+  "name": "siyaludeio/ip-access-guard",
+  "version": "1.0.0",
+  "description": "Protect Paths with IP Address Access Control",
+  "type": "library",
+  "keywords": [
+    "laravel",
+    "package"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Indunil Peramuna",
+      "email": "indunil@siyalude.io"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Siyaludeio\\IPAccessGuard\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Siyaludeio\\IPAccessGuard\\IPAccessGuardServiceProvider"
+      ]
+    }
+  },
+  "require": {
+    "php": ">=7.4.0 || ^8.0",
+    "illuminate/support": "^8.0|^9.0|^10.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9.0"
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true
 }
