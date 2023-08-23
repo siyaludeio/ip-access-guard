@@ -1,6 +1,6 @@
 {
   "name": "siyaludeio/ip-access-guard",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Protect Paths with IP Address Access Control",
   "type": "library",
   "keywords": [
